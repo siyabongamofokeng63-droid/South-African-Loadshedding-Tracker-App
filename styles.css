@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #1e1e1e, #111);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  animation: backgroundShift 20s ease-in-out infinite alternate;
+}
+
+/* Animate the background */
+@keyframes backgroundShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+.container {
+  background: #2b2b2b;
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: containerSlide 1s forwards;
+}
+
+/* Slide in the container */
+@keyframes containerSlide {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+input, select {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ff4444;
+  outline: none;
+}
+
+button {
+  background: #ff4444;
+  color: white;
+  padding: 12px;
+  width: 95%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  background: #cc0000;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff4444;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+#result.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Critical stage glow effect */
+.stage-critical {
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #ff4444; }
+  to { text-shadow: 0 0 20px #ff0000, 0 0 40px #ff4444; }
+}
